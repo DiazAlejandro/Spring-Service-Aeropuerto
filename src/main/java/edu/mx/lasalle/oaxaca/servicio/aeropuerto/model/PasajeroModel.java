@@ -4,9 +4,14 @@
  */
 package edu.mx.lasalle.oaxaca.servicio.aeropuerto.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import java.util.Date;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 /**
  *
@@ -15,10 +20,13 @@ import java.util.Date;
 @Entity
 @Table(name = "pasajero")
 public class PasajeroModel {
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private int id;
     private String nombre; 
     private String apellido; 
-    private String direccion; 
+    private String direccion;
+    @Temporal(TemporalType.DATE)
     private Date fechaNacimiento;
     private Boolean discapacidad; 
     private String nacionalidad;
